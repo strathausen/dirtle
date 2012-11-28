@@ -1,6 +1,7 @@
 {
   "name": "dirtle",
   "version": "0.0.1alphaomega",
+  "author": "Johann Philipp Strathausen <strathausen@gmail.com>",
   "description": "simple and diry persistent json store",
   "main": "index.js",
   "scripts": {
@@ -8,12 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "empty"
+    "url": "git@github.com:strathausen/dirtle.git"
   },
   "keywords": [
     "json",
-    "db"
+    "db",
+    "odm",
+    "orm",
+    "no-sql",
+    "persistence"
   ],
-  "author": "Johann Philipp Strathausen",
   "license": "BSD"
 }
