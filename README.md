@@ -5,7 +5,7 @@ Database done right.
 ## What?
 
 Dirtle is a fast, in-memory, persistent JSON store for node.js
-with synchroneous access.
+with synchroneous but non-blocking access.
 
 ## How?
 
