@@ -46,32 +46,66 @@
 
 
       <section id="main_content">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h1>Dirtle</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Database done right.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h2>What?</h2>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Dirtle is a fast, in-memory, persistent JSON store for node.js
+with synchroneous but non-blocking access.</p>
 
-<h3>Designer Templates</h3>
+<h2>How?</h2>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Easy.</p>
 
-<h3>Rather Drive Stick?</h3>
+<ol>
+<li>
+<p>Install it.</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<div class="highlight"><pre>npm i dirtle
+</pre></div>
+</li>
+<li>
+<p>Create the database.</p>
 
-<h3>Authors and Contributors</h3>
+<div class="highlight"><pre><span class="nb">echo</span> <span class="s1">'{}'</span> &gt; db.json
+</pre></div>
+</li>
+<li>
+<p>Use it.</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Dirtle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dirtle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dirtle</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'db.json'</span><span class="p">)).</span><span class="nx">db</span><span class="p">;</span>
 
-<h3>Support or Contact</h3>
+<span class="nx">db</span><span class="p">.</span><span class="nx">users</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">name</span> <span class="o">:</span> <span class="s1">'hohoho'</span> <span class="p">});</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">pages</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">home</span><span class="o">:</span> <span class="s1">'Home Page'</span><span class="p">,</span>
+  <span class="nx">profile</span><span class="o">:</span> <span class="s1">'My Profile'</span>
+<span class="p">};</span>
+</pre></div>
+</li>
+</ol><h2>How does it work?</h2>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>When creating an instance of <code>Dirtle</code>,
+the Database is being loaded into memory <em>synchroneously</em>
+from a JSON file.
+It is being dumped non-blockingly to disk once every 470 milliseconds by default
+and once when the application exits.</p>
+
+<p>You use it just like a native Object in JavaScript.
+However, it has to pass through JSON.stringify or the app will crash.</p>
+
+<h2>API</h2>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dirtle</span><span class="p">(</span><span class="nx">path</span><span class="p">[,</span> <span class="nx">timeout</span><span class="p">]).</span><span class="nx">db</span><span class="p">;</span>
+</pre></div>
+
+<p><code>path</code> is the path to the database json text file.
+<code>timeout</code> is an optional timeout in ms, when the db will be persisted to disk
+(default 470ms).</p>
       </section>
 
       <footer>
