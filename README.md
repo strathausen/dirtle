@@ -13,19 +13,19 @@ Easy.
 
 1. Install it.
 
-  ``` bash
+  ```bash
   npm i dirtle
   ```
 
 2. Create the database.
 
-  ``` bash
+  ```bash
   echo '{}' > db.json
   ```
 
 3. Use it.
 
-  ``` js
+  ```js
   var Dirtle = require('dirtle');
   var path = require('path');
   var db = new Dirtle(path.join(__dirname, 'db.json')).db;
@@ -36,6 +36,22 @@ Easy.
       home: 'Home Page',
       profile: 'My Profile'
   };
+  ```
+4. Look at the database from outside.
+
+  ```bash
+  $ cat db.json | pjson
+    {
+      "pages": {
+        "home": "Home Page", 
+        "profile": "My Profile"
+      }, 
+      "users": [
+        {
+          "name": "hohoho"
+        }
+      ]
+    }
   ```
 
 ## How does it work?
