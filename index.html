@@ -87,6 +87,23 @@ with synchroneous but non-blocking access.</p>
 <span class="p">};</span>
 </pre></div>
 </li>
+<li>
+<p>Look at the database from outside.</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>cat db.json | pjson
+<span class="o">{</span>
+  <span class="s2">"pages"</span>: <span class="o">{</span>
+    <span class="s2">"home"</span>: <span class="s2">"Home Page"</span>, 
+    <span class="s2">"profile"</span>: <span class="s2">"My Profile"</span>
+  <span class="o">}</span>, 
+  <span class="s2">"users"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"name"</span>: <span class="s2">"hohoho"</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</li>
 </ol><h2>How does it work?</h2>
 
 <p>When creating an instance of <code>Dirtle</code>,
