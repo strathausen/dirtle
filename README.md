@@ -1,5 +1,7 @@
 # Dirtle
 
+Warning: Do not use this for real things. You will lose data.
+
 Database done right.
 
 ## What?
